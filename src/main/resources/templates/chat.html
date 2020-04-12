@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>Simple chat</title>
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <script src="/webjars/jquery/jquery.min.js"></script>
@@ -14,12 +14,6 @@
 <h1>Simple chat</h1>
 <div class="chat_window">
     <div class="top_menu">
-        <div class="buttons">
-            <div class="button close"></div>
-            <div class="button minimize"></div>
-            <div class="button maximize"></div>
-        </div>
-        <div class="title">Chat</div>
     </div>
     <ul class="messages"></ul>
     <div class="bottom_wrapper clearfix">
@@ -32,7 +26,9 @@
 </div>
 <div id="message_template" class="message_template">
     <li class="message">
-        <div id="name"></div>
+        <div id="name_wrapper">
+            <div class="name"></div>
+        </div>
         <div class="text_wrapper">
             <div class="text"></div>
         </div>

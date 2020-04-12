@@ -1,15 +1,12 @@
-var username = null;
-
 function connect() {
     var socket = new SockJS('/chat-messaging');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
-        console.log("connected: " + frame);
-        stompClient.subscribe('/chat/messages', function (response) {
+        stompClient.subscribe('/topic/message', function (response) {
+            console.log("RESPONSE_BODY IS" + response.body);
             var data = JSON.parse(response.body);
-            draw("left", data.message);
+            draw("left", data);
         });
-        username=getURLParameter();
     });
 }
 
@@ -18,14 +15,17 @@ connect();
 function getURLParameter() {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('=');
-    return sURLVariables[1];
+    var name_from_url = sURLVariables[1];
+    localStorage.setItem('username', name_from_url);
 }
 
-function draw(side, text) {
+getURLParameter();
+
+function draw(side, data) {
     var $message;
     $message = $($('.message_template').clone().html());
-    $('#name').text(username);
-    $message.addClass(side).find('.text').html(text);
+    $message.find('.name').html(data.sender);
+    $message.addClass(side).find('.text').html(data.message);
     $('.messages').append($message);
     return setTimeout(function () {
         return $message.addClass('appeared');
@@ -37,5 +37,6 @@ function disconnect() {
 }
 
 function sendMessage() {
-    stompClient.send("/app/message", {}, JSON.stringify({'message': $("#message_input_value").val()}));
+    stompClient.send("/app/message", {}, JSON.stringify(
+        {'message': $("#message_input_value").val(), 'sender': localStorage.getItem('username')}));
 }

@@ -40,13 +40,13 @@ body {
     margin-right: 10px;
     position: relative;
 }
-.top_menu .buttons .button.close {
+.top_menu {
     background-color: #f5886e;
 }
-.top_menu .buttons .button.minimize {
+.top_menu  {
     background-color: #fdbf68;
 }
-.top_menu .buttons .button.maximize {
+.top_menu {
     background-color: #a3d063;
 }
 .top_menu .title {
@@ -192,4 +192,25 @@ body {
 
 .message_template {
     display: none;
+}
+
+.center-block {
+    background-color: darkgrey;
+    text-align: center;
+}
+
+.login-container {
+    position: absolute;
+    width: calc(100% - 20px);
+    max-width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: #f8f8f8;
+    overflow: hidden;
+    justify-content: center;
 }

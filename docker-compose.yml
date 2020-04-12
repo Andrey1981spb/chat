@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  webapp:
+    container_name: chat
+    build:
+      context: .
+    depends_on:
+      - broker
+    ports:
+      - "8080:8080"
+    networks:
+      - chat_network
+
+  broker:
+    container_name: rabbit_chat
+    image: rabbitmq:3.5.3-management
+    hostname: broker
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - chat_network
+
+networks:
+  chat_network:
+    external:
+      name: chat_network

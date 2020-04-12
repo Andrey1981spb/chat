@@ -2,16 +2,18 @@ package ru.spb.chat.model;
 
 public class Message {
 
-    private String content;
+    private String message;
     private String sender;
 
-
-    public String getContent() {
-        return content;
+    public Message() {
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String content) {
+        this.message = content;
     }
 
     public String getSender() {
@@ -22,4 +24,11 @@ public class Message {
         this.sender = sender;
     }
 
+    @Override
+    public String toString() {
+        return "Message{" +
+                "message='" + message + '\'' +
+                ", sender='" + sender + '\'' +
+                '}';
+    }
 }
