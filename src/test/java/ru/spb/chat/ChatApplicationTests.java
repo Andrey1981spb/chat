@@ -1,13 +1,13 @@
 package ru.spb.chat;
 
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
+@SpringBootTest
+class ChatApplicationTests {
 
-@RunWith ( SpringRunner.class )
-@SpringBootTest ( webEnvironment = RANDOM_PORT )
-public class ChatApplicationTests {
+    @Test
+    void contextLoads() {
+    }
 
 }

@@ -10,19 +10,22 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - chat_network
+      - chat_bridge
 
   broker:
     container_name: rabbit_chat
-    image: rabbitmq:3.5.3-management
+    image: rabbitmq:latest
     hostname: broker
     ports:
       - "5672:5672"
       - "15672:15672"
     networks:
-      - chat_network
+      - chat_bridge
 
 networks:
-  chat_network:
+  chat_bridge:
     external:
-      name: chat_network
+      name: chat_bridge
+
+
+

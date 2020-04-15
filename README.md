@@ -29,12 +29,9 @@ In any browser enter "http://www.localhost:8080"
 
 4.2. From containers.
 
-While first deployment create docker network by command: 
-"docker network create chat_network". Run main-method at ChatApplication for creating 
-war-file at target-folder. 
+While first deployment create docker network by command: "docker network create chat_network".
 
-While first and further deployment:
-establish at application.properties (chat/src/resources/application.properties) 
+While first and any other deployment establish at application.properties (chat/src/resources/application.properties) 
 the value of spring.rabbitmq.host as "broker",
 the value of spring.rabbitmq.port as 5672.
 Then run mvn clean and mvn install.
